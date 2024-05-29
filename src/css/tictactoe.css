@@ -1,32 +1,47 @@
 .square {
   background-color: white;
-  width: 50px;
-  height: 50px;
+  width: 60px; /* 調整大小以適應設計 */
+  height: 60px;
   display: inline-block; /* 確保按鈕不會換行 */
-  margin: 4px; /* 確保按鈕之間有適當的間距 */
+  margin: 5px; /* 確保按鈕之間有適當的間距 */
   font-size: 24px;
   font-weight: bold;
   text-align: center;
   vertical-align: middle;
+  border: 2px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .square:hover {
-  background-color: rgb(255, 69, 137);
+  background-color: rgb(186, 250, 255);
   cursor: pointer;
+  transform: scale(1.1); /* 增加放大效果 */
+}
+
+.square:active {
+  background-color: rgb(42, 110, 255);
+  transform: scale(1); /* 確保按下時恢復正常大小 */
 }
 
 .game {
   width: 400px;
   margin: auto;
-  border: 3px solid blue;
+  border: 3px solid #333;
   padding: 20px;
+  background: linear-gradient(to bottom right, #ffefba, #ffffff);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .board {
-  background-color: rgb(244, 197, 126);
+  background-color: rgba(244, 197, 126, 0.9);
   padding: 20px;
+  border-radius: 15px;
 }
 
 .board-row {
   display: flex; /* 確保棋盤行水平排列 */
+  justify-content: center; /* 使行居中 */
 }
