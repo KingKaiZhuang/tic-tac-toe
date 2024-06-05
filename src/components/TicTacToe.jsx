@@ -13,10 +13,39 @@ export default function TicTacToe() {
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
   };
+
+  const jumpTo = (nextMove) => setCurrentMove(nextMove);
+
+  const moves = history.map((squares, move) => {
+    let description;
+    if (move > 0) {
+      description = `回到第${move}步`;
+    } else {
+      description = "回到開始";
+    }
+    return (
+      <>
+        <li key={move}>
+          <button onClick={() => jumpTo(move)}> {description}</button>
+        </li>
+      </>
+    );
+  });
+
   return (
     <>
       <div className="game">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        <div className="board-item">
+          <Board
+            xIsNext={xIsNext}
+            squares={currentSquares}
+            onPlay={handlePlay}
+          />
+        </div>
+        <div className="game-info">
+          <h4>遊戲歷程</h4>
+          <p>{moves}</p>
+        </div>
       </div>
     </>
   );
