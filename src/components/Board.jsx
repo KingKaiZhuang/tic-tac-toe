@@ -28,7 +28,7 @@ export default function Board({ xIsNext, squares, onPlay }) {
       [0, 4, 8],
       [2, 4, 6],
     ];
-    for (let i = 0; i < lines.length - 1; i++) {
+    for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (
         squares[a] &&
@@ -37,11 +37,10 @@ export default function Board({ xIsNext, squares, onPlay }) {
       ) {
         return squares[a];
       }
-      return null;
     }
+    return null;
   };
 
-  const nextSquares = squares.slice();
   let status = "下一個玩家：" + (xIsNext ? "X" : "O");
   return (
     <>
